@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1087569996794",
+    "project_id": "invoice-gen-1d67c",
+    "storage_bucket": "invoice-gen-1d67c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087569996794:android:c144585558fa057f331243",
+        "android_client_info": {
+          "package_name": "com.sandeep.invoice_gen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087569996794-uuvu6ihet3ohv06ekbsqppgerc770k63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiz9zlcSJ56Rt-raAmU50YJYSrwU9_w7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087569996794-uuvu6ihet3ohv06ekbsqppgerc770k63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
