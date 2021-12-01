@@ -24,10 +24,8 @@ class _UploadPageState extends State<UploadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[50],
       appBar: AppBar(
         elevation: 0.1,
-        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Colors.black,
@@ -37,7 +35,7 @@ class _UploadPageState extends State<UploadPage> {
         ),
         title: Text(
           "Add product",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.amber),
           textAlign: TextAlign.center,
         ),
         actions: [
@@ -83,7 +81,7 @@ class _UploadPageState extends State<UploadPage> {
                 controller: _nametextEditingController,
                 decoration: InputDecoration(
                   hintText: "Name",
-                  hintStyle: TextStyle(color: Colors.deepPurpleAccent),
+                  hintStyle: TextStyle(color: Colors.white),
                   border: InputBorder.none,
                 ),
               ),
@@ -103,7 +101,7 @@ class _UploadPageState extends State<UploadPage> {
                 controller: _quantitytextEditingController,
                 decoration: InputDecoration(
                   hintText: "Quantity",
-                  hintStyle: TextStyle(color: Colors.deepPurpleAccent),
+                  hintStyle: TextStyle(color: Colors.white),
                   border: InputBorder.none,
                 ),
               ),
@@ -123,7 +121,7 @@ class _UploadPageState extends State<UploadPage> {
                 controller: _pricetextEditingController,
                 decoration: InputDecoration(
                   hintText: "Price",
-                  hintStyle: TextStyle(color: Colors.deepPurpleAccent),
+                  hintStyle: TextStyle(color: Colors.white),
                   border: InputBorder.none,
                 ),
               ),
@@ -149,7 +147,7 @@ class _UploadPageState extends State<UploadPage> {
         })
         .then((value) => print("Product Added"))
         .catchError((error) => print("Failed to add Product"));
-    Fluttertoast.showToast(msg: "category added");
+    Fluttertoast.showToast(msg: "Item added");
     Navigator.pop(context);
     clearFormInfo();
   }

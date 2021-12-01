@@ -31,6 +31,7 @@ class Input extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: TextField(
+        style: TextStyle(color: Colors.black),
         obscureText: isPasswordField,
         onSubmitted: onSubmitted,
         onChanged: onChanged,
@@ -38,6 +39,7 @@ class Input extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hinttext.toString(),
+          hintStyle: TextStyle(color: Colors.black),
           contentPadding: EdgeInsets.symmetric(
             horizontal: 24.0,
             vertical: 24.0,

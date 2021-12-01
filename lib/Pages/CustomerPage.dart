@@ -19,6 +19,9 @@ class _CustomerPageState extends State<CustomerPage> {
   //User? _user = FirebaseAuth.instance.currentUser;
   final Stream<QuerySnapshot> _stream =
       FirebaseFirestore.instance.collection('customer').snapshots();
+  SnackBar _snackBar3 =
+      SnackBar(content: Text('Removed from Customer DataBase'));
+  CollectionReference Users = FirebaseFirestore.instance.collection("customer");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +67,7 @@ class _CustomerPageState extends State<CustomerPage> {
                     color: Colors.yellow[100],
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  height: 100.0,
+                  height: 70.0,
                   margin: EdgeInsets.symmetric(
                     vertical: 5.0,
                     horizontal: 24.0,
@@ -89,10 +92,17 @@ class _CustomerPageState extends State<CustomerPage> {
                               ),
                               Row(
                                 children: [
-                                  Text(
-                                    "Rs",
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.red),
+                                  IconButton(
+                                    onPressed: () {
+                                      var id = document.id;
+                                      deleteUser(id);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(_snackBar3);
+                                    },
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 4,
@@ -110,6 +120,13 @@ class _CustomerPageState extends State<CustomerPage> {
             );
           }),
     );
+  }
+
+  Future<void> deleteUser(var id) {
+    return Users.doc(id)
+        .delete()
+        .then((value) => print("User Deleted"))
+        .catchError((error) => print("Failed to delete user: $error"));
   }
 }
 

@@ -15,12 +15,13 @@ class Inventory extends StatefulWidget {
 }
 
 class _InventoryState extends State<Inventory> {
-  final CollectionReference _Productlist =
-      FirebaseFirestore.instance.collection('product');
   User? _user = FirebaseAuth.instance.currentUser;
   final Stream<QuerySnapshot> _stream =
       FirebaseFirestore.instance.collection('product').snapshots();
+  SnackBar _snackBar3 = SnackBar(content: Text('Removed from Inventory'));
   var productid;
+  final CollectionReference Users =
+      FirebaseFirestore.instance.collection('product');
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +89,7 @@ class _InventoryState extends State<Inventory> {
                         color: Colors.yellow[100],
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      height: 100.0,
+                      height: 70.0,
                       margin: EdgeInsets.symmetric(
                         vertical: 5.0,
                         horizontal: 24.0,
@@ -114,6 +115,21 @@ class _InventoryState extends State<Inventory> {
                                   ),
                                   Row(
                                     children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          var id = document.id;
+                                          deleteUser(id);
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(_snackBar3);
+                                        },
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
                                       Text(
                                         "Rs",
                                         style: TextStyle(
@@ -205,5 +221,12 @@ class _InventoryState extends State<Inventory> {
         ),
       ],
     );*/
+  }
+
+  Future<void> deleteUser(var id) {
+    return Users.doc(id)
+        .delete()
+        .then((value) => print("User Deleted"))
+        .catchError((error) => print("Failed to delete user: $error"));
   }
 }

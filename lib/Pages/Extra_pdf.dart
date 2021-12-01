@@ -123,6 +123,122 @@ class _Extra_pdfState extends State<Extra_pdf> {
         ),
       );
 }
+
+class Extra_pdf1 extends StatefulWidget {
+  const Extra_pdf1({Key? key}) : super(key: key);
+
+  @override
+  _Extra_pdf1State createState() => _Extra_pdf1State();
+}
+
+class _Extra_pdf1State extends State<Extra_pdf1> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          centerTitle: true,
+        ),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TitleWidget(
+                      icon: Icons.picture_as_pdf,
+                      text: 'Generate Invoice',
+                    ),
+                    const SizedBox(height: 48),
+                    ButtonWidget(
+                      text: 'Invoice PDF',
+                      onClicked: () async {
+                        final date = DateTime.now();
+                        final dueDate = date.add(Duration(days: 7));
+
+                        final invoice = Invoice(
+                          supplier: Supplier(
+                            name: 'Malakar',
+                            address: 'BITS Pilani Goa Campus',
+                            paymentInfo: 'https://paypal.me/sarahfieldzz',
+                          ),
+                          customer: Customer(
+                            name: 'INS Inc.',
+                            address: 'BITS Pilani Goa Campus',
+                          ),
+                          info: InvoiceInfo(
+                            date: date,
+                            dueDate: dueDate,
+                            description: 'My description...',
+                            number: '${DateTime.now().year}-9999',
+                          ),
+                          items: [
+                            InvoiceItem(
+                              description: 'Biscuit Pack',
+                              date: DateTime.now(),
+                              quantity: 100,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Soaps',
+                              date: DateTime.now(),
+                              quantity: 5,
+                              vat: 0.19,
+                              unitPrice: 50,
+                            ),
+                            InvoiceItem(
+                              description: 'Icecream',
+                              date: DateTime.now(),
+                              quantity: 26,
+                              vat: 0.19,
+                              unitPrice: 15,
+                            ),
+                            InvoiceItem(
+                              description: 'Erasers',
+                              date: DateTime.now(),
+                              quantity: 2,
+                              vat: 0.19,
+                              unitPrice: 50,
+                            ),
+                            InvoiceItem(
+                              description: 'Hangers',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Watch',
+                              date: DateTime.now(),
+                              quantity: 200,
+                              vat: 0.19,
+                              unitPrice: 10,
+                            ),
+                            InvoiceItem(
+                              description: 'Choclates',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 40,
+                            ),
+                          ],
+                        );
+
+                        final pdfFile = await PdfInvoiceApi.generate(invoice);
+
+                        PdfApi.openFile(pdfFile);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+}
 /**/
              /*Row(
               children: [

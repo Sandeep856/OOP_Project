@@ -33,35 +33,11 @@ class _AdminState extends State<Admin> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Row(
-            children: <Widget>[
-              Expanded(
-                  child: FlatButton.icon(
-                      onPressed: () {
-                        setState(() => _selectedPage = Page.dashboard);
-                      },
-                      icon: Icon(
-                        Icons.dashboard,
-                        color: _selectedPage == Page.dashboard
-                            ? active
-                            : notActive,
-                      ),
-                      label: Text('Dashboard'))),
-              Expanded(
-                  child: FlatButton.icon(
-                      onPressed: () {
-                        setState(() => _selectedPage = Page.manage);
-                      },
-                      icon: Icon(
-                        Icons.sort,
-                        color:
-                            _selectedPage == Page.manage ? active : notActive,
-                      ),
-                      label: Text('Manage'))),
-            ],
+          title: Text(
+            "Edit Inventory",
+            style: TextStyle(color: Colors.amber),
           ),
           elevation: 0.0,
-          backgroundColor: Colors.white,
         ),
         body: _loadScreen());
   }

@@ -22,11 +22,11 @@ class _AddCustomerState extends State<AddCustomer> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Row(
-            children: <Widget>[],
+          title: Text(
+            "Add Customer to the database",
+            style: TextStyle(color: Colors.amber),
           ),
-          elevation: 0.0,
-          backgroundColor: Colors.white,
+          centerTitle: true,
         ),
         body: _loadScreen());
   }
@@ -35,7 +35,10 @@ class _AddCustomerState extends State<AddCustomer> {
     return ListView(
       children: [
         ListTile(
-          leading: Icon(Icons.add_circle),
+          leading: Icon(
+            Icons.add_circle,
+            size: 40,
+          ),
           title: Text("Add Customer"),
           onTap: () {
             _customeralert();

@@ -14,19 +14,18 @@ class PdfPage extends StatefulWidget {
   late List<TextEditingController> desc;
   late List<TextEditingController> price;
   late List<TextEditingController> quantity;
+  late int entries;
   //ignore: use_key_in_widget_constructors
-  PdfPage({required this.desc, required this.price, required this.quantity});
+  PdfPage(
+      {required this.desc,
+      required this.price,
+      required this.quantity,
+      required this.entries});
   @override
   _PdfPageState createState() => _PdfPageState();
 }
 
 class _PdfPageState extends State<PdfPage> {
-  List<TextEditingController> desccontroller =
-      List.generate(7, (i) => TextEditingController());
-  List<TextEditingController> pricecontroller =
-      List.generate(7, (i) => TextEditingController());
-  List<TextEditingController> quantitycontroller =
-      List.generate(7, (i) => TextEditingController());
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.black,
@@ -53,32 +52,31 @@ class _PdfPageState extends State<PdfPage> {
                         final dueDate = date.add(Duration(days: 7));
 
                         final invoice = Invoice(
-                          supplier: Supplier(
-                            name: 'Malakar',
-                            address: 'BITS Pilani Goa Campus',
-                            paymentInfo: 'https://paypal.me/sarahfieldzz',
-                          ),
-                          customer: Customer(
-                            name: 'INS Inc.',
-                            address: 'BITS Pilani Goa Campus',
-                          ),
-                          info: InvoiceInfo(
-                            date: date,
-                            dueDate: dueDate,
-                            description: 'My description...',
-                            number: '${DateTime.now().year}-9999',
-                          ),
-                          items: [
-                            for (int i = 0; i < 7; i++)
-                              InvoiceItem(
-                                description: widget.desc[i].text,
-                                date: DateTime.now(),
-                                quantity: int.parse(widget.quantity[i].text),
-                                vat: 0.19,
-                                unitPrice: double.parse(widget.price[i].text),
-                              ),
-                          ],
-                        );
+                            supplier: Supplier(
+                              name: 'Malakar',
+                              address: 'BITS Pilani Goa Campus',
+                              paymentInfo: 'https://paypal.me/sarahfieldzz',
+                            ),
+                            customer: Customer(
+                              name: 'INS Inc.',
+                              address: 'BITS Pilani Goa Campus',
+                            ),
+                            info: InvoiceInfo(
+                              date: date,
+                              dueDate: dueDate,
+                              description: 'My description...',
+                              number: '${DateTime.now().year}-9999',
+                            ),
+                            items: [
+                              for (int i = 0; i < widget.entries; i++)
+                                InvoiceItem(
+                                  description: widget.desc[i].text,
+                                  date: DateTime.now(),
+                                  quantity: int.parse(widget.quantity[i].text),
+                                  vat: 0.19,
+                                  unitPrice: double.parse(widget.price[i].text),
+                                ),
+                            ]);
 
                         final pdfFile = await PdfInvoiceApi.generate(invoice);
 

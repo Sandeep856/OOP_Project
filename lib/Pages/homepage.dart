@@ -36,8 +36,12 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PdfEntry()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SOF(),
+                    ),
+                  );
                 },
                 child: Icon(
                   Icons.add_circle,
@@ -62,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: Colors.amber),
             ),
             Divider(),
             InkWell(
@@ -86,7 +90,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.yellow[100],
               borderRadius: BorderRadius.circular(12.0),
             ),
-            height: 100.0,
+            height: 70.0,
             margin: EdgeInsets.symmetric(
               vertical: 5.0,
               horizontal: 24.0,
@@ -106,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "ABC",
+                          "Customer1",
                           style: Constants.regularHeadings,
                         ),
                         Row(
@@ -122,6 +126,60 @@ class _HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => Extra_pdf()));
+                          },
+                          child: Icon(
+                            Icons.picture_as_pdf,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.yellow[100],
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            height: 70.0,
+            margin: EdgeInsets.symmetric(
+              vertical: 5.0,
+              horizontal: 24.0,
+            ),
+            child: Stack(
+              children: [
+                const SizedBox(
+                  height: 80.0,
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Customer2",
+                          style: Constants.regularHeadings,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 4,
+                            ),
+                          ],
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Extra_pdf1()));
                           },
                           child: Icon(
                             Icons.picture_as_pdf,

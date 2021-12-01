@@ -1,0 +1,246 @@
+/*Widget _loadScreen() {
+    return ListView(
+      children: <Widget>[
+        for (int i = 0; i < 7; i++)
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "item${i + 1}",
+                  style: TextStyle(color: Colors.amber, fontSize: 20),
+                ),
+                TextFormField(
+                  controller: desccontroller[i],
+                  decoration: InputDecoration(
+                      hintText: "Add name", label: Text("Description")),
+                ),
+                TextFormField(
+                  controller: pricecontroller[i],
+                  decoration: InputDecoration(
+                      hintText: "Add price", label: Text("Price")),
+                  keyboardType: TextInputType.number,
+                ),
+                TextFormField(
+                  controller: quantitycontroller[i],
+                  decoration: InputDecoration(
+                      hintText: "Add quantity", label: Text("Quantity")),
+                  keyboardType: TextInputType.number,
+                ),
+                SizedBox(
+                  height: 40,
+                )
+              ],
+            ),
+          ),
+      ],
+    );
+
+    // ignore: dead_code
+    return Container();
+  }
+
+  void _item1() {
+    var alert = new AlertDialog(
+      content: Form(
+        key: _categoryformkey,
+        child: Container(
+          height: 150,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: desccontroller[0],
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Description cannot be empty";
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "add Description",
+                ),
+                enableInteractiveSelection: true,
+              ),
+              TextFormField(
+                controller: pricecontroller[0],
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Price cannot be empty";
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "add price",
+                ),
+                enableInteractiveSelection: true,
+              ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        FlatButton.icon(
+          onPressed: () {
+            // ignore: unnecessary_null_comparison
+            if (categoryController != null) {}
+            Fluttertoast.showToast(msg: "category added");
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.add),
+          label: Text("ADD"),
+        ),
+        FlatButton.icon(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.close),
+          label: Text("CLOSE"),
+        ),
+      ],
+    );
+    showDialog(context: context, builder: (_) => alert);
+  }
+
+  void _item2() {
+    var alert = new AlertDialog(
+      content: Form(
+        key: _categoryformkey,
+        child: Container(
+          height: 150,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: desccontroller[1],
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Description cannot be empty";
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "add Description",
+                ),
+                enableInteractiveSelection: true,
+              ),
+              TextFormField(
+                controller: pricecontroller[1],
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Price cannot be empty";
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "add price",
+                ),
+                enableInteractiveSelection: true,
+              ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        FlatButton.icon(
+          onPressed: () {
+            // ignore: unnecessary_null_comparison
+            if (categoryController != null) {}
+            Fluttertoast.showToast(msg: "category added");
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.add),
+          label: Text("ADD"),
+        ),
+        FlatButton.icon(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.close),
+          label: Text("CLOSE"),
+        ),
+      ],
+    );
+    showDialog(context: context, builder: (_) => alert);
+  }
+
+  void _brandAlert() {
+    var alert = new AlertDialog(
+      content: Form(
+        key: _brandFormKey,
+        child: TextFormField(
+          controller: brandController,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "brand cannot be empty";
+            }
+          },
+          decoration: InputDecoration(
+            hintText: "add brand",
+          ),
+        ),
+      ),
+      actions: [
+        FlatButton.icon(
+          onPressed: () {
+            if (brandController != null) {
+              _brandService.createBrand(brandController.text);
+            }
+            Fluttertoast.showToast(msg: "brand Added");
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.add),
+          label: Text("ADD"),
+        ),
+        FlatButton.icon(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.close),
+          label: Text("CLOSE"),
+        ),
+      ],
+    );
+    showDialog(context: context, builder: (_) => alert);
+  }
+}*/
+  /*ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item1"),
+          onTap: () {
+            _item1();
+          },
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item2"),
+          onTap: () {},
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item3"),
+          onTap: () {},
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item4"),
+          onTap: () {},
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item5"),
+          onTap: () {
+            _brandAlert();
+          },
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item6"),
+          onTap: () {},
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.add),
+          title: Text("Item7"),
+          onTap: () {},
+        ),*/
