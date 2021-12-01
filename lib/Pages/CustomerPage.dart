@@ -39,6 +39,7 @@ class _CustomerPageState extends State<CustomerPage> {
           child: Icon(
             Icons.add_circle_outline,
             size: 30,
+            color: Colors.amber,
           ),
         ),
       ),

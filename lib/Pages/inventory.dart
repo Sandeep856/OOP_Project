@@ -115,6 +115,7 @@ class _InventoryState extends State<Inventory> {
                                   ),
                                   Row(
                                     children: [
+                                      Text(data["quantity"]),
                                       IconButton(
                                         onPressed: () {
                                           var id = document.id;

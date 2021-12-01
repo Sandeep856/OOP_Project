@@ -9,12 +9,12 @@ class SOF extends StatefulWidget {
 }
 
 class _SOFState extends State<SOF> {
-  static var desc = <TextEditingController>[];
-  static var price = <TextEditingController>[];
-  static var quantity = <TextEditingController>[];
-  static var cards = <Card>[];
+  var desc = <TextEditingController>[];
+  var price = <TextEditingController>[];
+  var quantity = <TextEditingController>[];
+  var cards = <Card>[];
 
-  static Card createCard() {
+  Card createCard() {
     var nameController = TextEditingController();
     var ageController = TextEditingController();
     var jobController = TextEditingController();

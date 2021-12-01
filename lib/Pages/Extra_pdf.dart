@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_field, prefer_final_fields, prefer_const_literals_to_create_immutables, file_names
+// ignore_for_file: prefer_const_constructors, unused_field, prefer_final_fields, prefer_const_literals_to_create_immutables, file_names, camel_case_types
 
 import 'package:flutter/material.dart';
 
@@ -21,6 +21,10 @@ class _Extra_pdfState extends State<Extra_pdf> {
         backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
+          title: Text(
+            "Invoice Generation",
+            style: TextStyle(color: Colors.amber, fontSize: 25),
+          ),
         ),
         body: ListView(
           children: <Widget>[
@@ -48,8 +52,8 @@ class _Extra_pdfState extends State<Extra_pdf> {
                             paymentInfo: 'https://paypal.me/sarahfieldzz',
                           ),
                           customer: Customer(
-                            name: 'INS Inc.',
-                            address: 'BITS Pilani Goa Campus',
+                            name: '',
+                            address: 's',
                           ),
                           info: InvoiceInfo(
                             date: date,
@@ -137,6 +141,10 @@ class _Extra_pdf1State extends State<Extra_pdf1> {
         backgroundColor: Colors.black,
         appBar: AppBar(
           centerTitle: true,
+          title: Text(
+            "Invoice Generation",
+            style: TextStyle(color: Colors.amber, fontSize: 25),
+          ),
         ),
         body: ListView(
           children: <Widget>[
@@ -159,12 +167,12 @@ class _Extra_pdf1State extends State<Extra_pdf1> {
 
                         final invoice = Invoice(
                           supplier: Supplier(
-                            name: 'Malakar',
+                            name: '',
                             address: 'BITS Pilani Goa Campus',
                             paymentInfo: 'https://paypal.me/sarahfieldzz',
                           ),
                           customer: Customer(
-                            name: 'INS Inc.',
+                            name: '',
                             address: 'BITS Pilani Goa Campus',
                           ),
                           info: InvoiceInfo(
@@ -217,7 +225,247 @@ class _Extra_pdf1State extends State<Extra_pdf1> {
                               unitPrice: 10,
                             ),
                             InvoiceItem(
-                              description: 'Choclates',
+                              description: 'Chocolates',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 40,
+                            ),
+                          ],
+                        );
+
+                        final pdfFile = await PdfInvoiceApi.generate(invoice);
+
+                        PdfApi.openFile(pdfFile);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class Extrapdf3 extends StatefulWidget {
+  const Extrapdf3({Key? key}) : super(key: key);
+
+  @override
+  _Extrapdf3State createState() => _Extrapdf3State();
+}
+
+class _Extrapdf3State extends State<Extrapdf3> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Invoice Generation",
+            style: TextStyle(color: Colors.amber, fontSize: 25),
+          ),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TitleWidget(
+                      icon: Icons.picture_as_pdf,
+                      text: 'Generate Invoice',
+                    ),
+                    const SizedBox(height: 48),
+                    ButtonWidget(
+                      text: 'Invoice PDF',
+                      onClicked: () async {
+                        final date = DateTime.now();
+                        final dueDate = date.add(Duration(days: 7));
+
+                        final invoice = Invoice(
+                          supplier: Supplier(
+                            name: 'Malakar',
+                            address: 'BITS Pilani Goa Campus',
+                            paymentInfo: 'https://paypal.me/sarahfieldzz',
+                          ),
+                          customer: Customer(
+                            name: '',
+                            address: '',
+                          ),
+                          info: InvoiceInfo(
+                            date: date,
+                            dueDate: dueDate,
+                            description: 'My description...',
+                            number: '${DateTime.now().year}-9999',
+                          ),
+                          items: [
+                            InvoiceItem(
+                              description: 'Biscuit Pack',
+                              date: DateTime.now(),
+                              quantity: 100,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Shampoo',
+                              date: DateTime.now(),
+                              quantity: 5,
+                              vat: 0.19,
+                              unitPrice: 5,
+                            ),
+                            InvoiceItem(
+                              description: 'Coffee',
+                              date: DateTime.now(),
+                              quantity: 26,
+                              vat: 0.19,
+                              unitPrice: 15,
+                            ),
+                            InvoiceItem(
+                              description: 'T-Shirt',
+                              date: DateTime.now(),
+                              quantity: 2,
+                              vat: 0.19,
+                              unitPrice: 500,
+                            ),
+                            InvoiceItem(
+                              description: 'Clips',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Note Book',
+                              date: DateTime.now(),
+                              quantity: 200,
+                              vat: 0.19,
+                              unitPrice: 10,
+                            ),
+                            InvoiceItem(
+                              description: 'Chocolates',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 40,
+                            ),
+                          ],
+                        );
+
+                        final pdfFile = await PdfInvoiceApi.generate(invoice);
+
+                        PdfApi.openFile(pdfFile);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class Extrapdf2 extends StatefulWidget {
+  const Extrapdf2({Key? key}) : super(key: key);
+
+  @override
+  _Extrapdf2State createState() => _Extrapdf2State();
+}
+
+class _Extrapdf2State extends State<Extrapdf2> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Invoice Generation",
+            style: TextStyle(color: Colors.amber, fontSize: 25),
+          ),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    TitleWidget(
+                      icon: Icons.picture_as_pdf,
+                      text: 'Generate Invoice',
+                    ),
+                    const SizedBox(height: 48),
+                    ButtonWidget(
+                      text: 'Invoice PDF',
+                      onClicked: () async {
+                        final date = DateTime.now();
+                        final dueDate = date.add(Duration(days: 7));
+
+                        final invoice = Invoice(
+                          supplier: Supplier(
+                            name: '',
+                            address: 'BITS Pilani Goa Campus',
+                            paymentInfo: 'https://paypal.me/sarahfieldzz',
+                          ),
+                          customer: Customer(
+                            name: '',
+                            address: 'BITS Pilani Goa Campus',
+                          ),
+                          info: InvoiceInfo(
+                            date: date,
+                            dueDate: dueDate,
+                            description: 'My description...',
+                            number: '${DateTime.now().year}-9999',
+                          ),
+                          items: [
+                            InvoiceItem(
+                              description: 'Hamper',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Maggi',
+                              date: DateTime.now(),
+                              quantity: 5,
+                              vat: 0.19,
+                              unitPrice: 10,
+                            ),
+                            InvoiceItem(
+                              description: 'Milk',
+                              date: DateTime.now(),
+                              quantity: 2,
+                              vat: 0.19,
+                              unitPrice: 15,
+                            ),
+                            InvoiceItem(
+                              description: 'Erasers',
+                              date: DateTime.now(),
+                              quantity: 2,
+                              vat: 0.19,
+                              unitPrice: 10,
+                            ),
+                            InvoiceItem(
+                              description: 'Hangers',
+                              date: DateTime.now(),
+                              quantity: 10,
+                              vat: 0.19,
+                              unitPrice: 20,
+                            ),
+                            InvoiceItem(
+                              description: 'Watch',
+                              date: DateTime.now(),
+                              quantity: 200,
+                              vat: 0.19,
+                              unitPrice: 10,
+                            ),
+                            InvoiceItem(
+                              description: 'Chocolates',
                               date: DateTime.now(),
                               quantity: 10,
                               vat: 0.19,

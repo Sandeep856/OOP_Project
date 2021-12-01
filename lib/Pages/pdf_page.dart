@@ -58,8 +58,8 @@ class _PdfPageState extends State<PdfPage> {
                               paymentInfo: 'https://paypal.me/sarahfieldzz',
                             ),
                             customer: Customer(
-                              name: 'INS Inc.',
-                              address: 'BITS Pilani Goa Campus',
+                              name: "",
+                              address: '',
                             ),
                             info: InvoiceInfo(
                               date: date,
