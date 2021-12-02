@@ -27,21 +27,31 @@ class _InventoryState extends State<Inventory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Admin()));
-          },
-          child: Icon(
-            Icons.add_circle_outline,
-            color: Colors.amber,
-          ),
-        ),
         title: Text(
           "Inventory",
           style: TextStyle(
               color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 10, 20, 10),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Admin()));
+                  },
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    color: Colors.amber,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
         centerTitle: true,
       ),
       body: Stack(
@@ -115,18 +125,18 @@ class _InventoryState extends State<Inventory> {
                                   ),
                                   Row(
                                     children: [
-                                      Text(data["quantity"]),
-                                      IconButton(
-                                        onPressed: () {
-                                          var id = document.id;
-                                          deleteUser(id);
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(_snackBar3);
-                                        },
-                                        icon: Icon(
-                                          Icons.delete,
-                                          color: Colors.black,
-                                        ),
+                                      Text(
+                                        "Quantity:",
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 18),
+                                      ),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
+                                      Text(
+                                        data["quantity"] ?? "",
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 20),
                                       ),
                                       SizedBox(
                                         width: 20,
@@ -145,6 +155,18 @@ class _InventoryState extends State<Inventory> {
                                             fontSize: 18.0,
                                             color: Colors.yellow[900],
                                             fontWeight: FontWeight.w600),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          var id = document.id;
+                                          deleteUser(id);
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(_snackBar3);
+                                        },
+                                        icon: Icon(
+                                          Icons.delete,
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     ],
                                   ),

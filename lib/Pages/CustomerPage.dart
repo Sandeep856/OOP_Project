@@ -28,20 +28,30 @@ class _CustomerPageState extends State<CustomerPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Customer Database",
-          style: TextStyle(color: Colors.amber),
+          "Customer DataBase",
+          style: TextStyle(
+              color: Colors.amber, fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AddCustomer()));
-          },
-          child: Icon(
-            Icons.add_circle_outline,
-            size: 30,
-            color: Colors.amber,
+        actions: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 10, 20, 10),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AddCustomer()));
+                  },
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    color: Colors.amber,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
       body: StreamBuilder(
           stream: _stream,
@@ -87,6 +97,11 @@ class _CustomerPageState extends State<CustomerPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              Text(
+                                "Name:",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              ),
                               Text(
                                 data["name"],
                                 style: Constants.regularHeadings,
