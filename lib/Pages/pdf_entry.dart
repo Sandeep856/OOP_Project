@@ -17,10 +17,10 @@ class _SOFState extends State<SOF> {
   Card createCard() {
     var nameController = TextEditingController();
     var ageController = TextEditingController();
-    var jobController = TextEditingController();
+    var qController = TextEditingController();
     desc.add(nameController);
     price.add(ageController);
-    quantity.add(jobController);
+    quantity.add(qController);
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -38,7 +38,7 @@ class _SOFState extends State<SOF> {
               decoration: InputDecoration(labelText: 'Price'),
               keyboardType: TextInputType.number),
           TextField(
-              controller: jobController,
+              controller: qController,
               decoration: InputDecoration(labelText: 'Quantity'),
               keyboardType: TextInputType.number),
         ],

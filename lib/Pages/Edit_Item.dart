@@ -38,6 +38,7 @@ class _AdminState extends State<Admin> {
             style: TextStyle(color: Colors.amber),
           ),
           elevation: 0.0,
+          centerTitle: true,
         ),
         body: _loadScreen());
   }
@@ -55,23 +56,11 @@ class _AdminState extends State<Admin> {
         ),
         Divider(),
         ListTile(
-          leading: Icon(Icons.change_history),
-          title: Text("Products list"),
-          onTap: () {},
-        ),
-        Divider(),
-        ListTile(
           leading: Icon(Icons.add_circle),
           title: Text("Add category"),
           onTap: () {
             _categoryalert();
           },
-        ),
-        Divider(),
-        ListTile(
-          leading: Icon(Icons.category),
-          title: Text("Category list"),
-          onTap: () {},
         ),
         Divider(),
         ListTile(
@@ -81,13 +70,6 @@ class _AdminState extends State<Admin> {
             _brandAlert();
           },
         ),
-        Divider(),
-        ListTile(
-          leading: Icon(Icons.library_books),
-          title: Text("brand list"),
-          onTap: () {},
-        ),
-        Divider(),
       ],
     );
 
@@ -99,33 +81,17 @@ class _AdminState extends State<Admin> {
     var alert = new AlertDialog(
       content: Form(
         key: _categoryformkey,
-        child: Column(
-          children: [
-            TextFormField(
-              controller: categoryController,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "category cannot be empty";
-                }
-              },
-              decoration: InputDecoration(
-                hintText: "add Category",
-              ),
-              enableInteractiveSelection: true,
-            ),
-            TextFormField(
-              controller: categoryController,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "category cannot be empty";
-                }
-              },
-              decoration: InputDecoration(
-                hintText: "add Category",
-              ),
-              enableInteractiveSelection: true,
-            ),
-          ],
+        child: TextFormField(
+          controller: categoryController,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return "category cannot be empty";
+            }
+          },
+          decoration: InputDecoration(
+            hintText: "add Category",
+          ),
+          enableInteractiveSelection: true,
         ),
       ),
       actions: [
